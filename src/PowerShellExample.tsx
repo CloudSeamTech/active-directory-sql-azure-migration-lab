@@ -1,0 +1,2 @@
+/** Display-only prompt; copied text remains the raw command without a prompt. */
+export function PowerShellExample({code}:{code:string}) {return <pre className="powershell-example"><code>{code.split('\n').map((line,i)=>{const space=line.indexOf(' ');return <span className="ps-line" key={i}><span className="ps-prompt" aria-hidden="true">{'PS C:\\> '}</span><span className="ps-command">{space<0?line:line.slice(0,space)}</span><span className="ps-argument">{space<0?'':line.slice(space)}</span>{i<code.split('\n').length-1?'\n':''}</span>;})}</code></pre>;}
